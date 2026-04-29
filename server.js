@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 // 📊 DATA (RAW)
 app.post("/data", async (req, res) => {
-  const rawText = "📊 DATA:\n\n" + JSON.stringify(req.body, null, 2);
+  const rawText = req.body.pretty || "No data received";
 
   try {
     await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
